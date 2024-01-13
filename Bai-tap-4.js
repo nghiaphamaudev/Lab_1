@@ -36,8 +36,11 @@ classRoom.splice(Math.floor(Math.random() * classRoom.length) + 1, 1);
 const filterName = nameSearch =>
   classRoom.filter(
     el =>
-      el.split(' ').slice(-1).join('').toLowerCase() ===
-      nameSearch.toLowerCase()
+      el
+        .split(' ')
+        .slice(-1)
+        .join('')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') === nameSearch.toLowerCase()
   );
-
-console.log(filterName('Hieu'));
