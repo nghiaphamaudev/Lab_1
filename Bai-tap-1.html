@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css" media="screen">
+      .use_item {
+        color: green;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul id="target"></ul>
+    <script>
+      var users = [
+        { id: 1, name: 'James Smith', gender: 1 },
+        { id: 2, name: 'Isla Brown', gender: 2 },
+        { id: 3, name: 'Amelia Davies', gender: 2 },
+        { id: 4, name: 'Jacob Evans', gender: 1 },
+      ];
+      var target = document.querySelector('#target');
+      var htmls = users
+        .map(el => {
+          let gender = el.gender === 1 ? 'male' : 'female';
+          return `<li class="use_item">${el.id} - ${el.name} - ${gender}</li>`;
+        })
+        .join('');
+      target.innerHTML = htmls;
+    </script>
+  </body>
+</html>
