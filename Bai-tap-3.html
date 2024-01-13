@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="form">
+      <label for="">Input</label>
+      <input type="text" id="input" /><br />
+      <input type="submit" value="Convert" onclick="transfer(event)" />
+    </form>
+
+    <div class="container"></div>
+
+    <script>
+      const text_transfer = document.querySelector('.container');
+      const transfer = e => {
+        e.preventDefault();
+        const input = document.querySelector('#input').value;
+        text_transfer.innerHTML = `<h3>${convertString(input)}</h3>`;
+      };
+      const convertString = str =>
+        str
+          .replace(/[^a-zA-Z0-9\s]/g, '')
+          .trim()
+          .toLowerCase()
+          .split(' ')
+          .map((el, index) =>
+            index !== 0 && el !== ''
+              ? el.replace(el[0], el[0].toUpperCase())
+              : el
+          )
+          .join('');
+    </script>
+  </body>
+</html>
