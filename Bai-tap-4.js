@@ -29,9 +29,6 @@ classRoom.shift();
 classRoom.splice(Math.floor(Math.random() * classRoom.length) + 1, 1);
 
 // Câu 4: Tìm kiếm theo tên, không chứa dấu
-// Solution idea: Duyệt mảng lọc lấy tên của tất cả các phần tử
-// Chuyển thành tên viết thường so sánh với chuỗi cần tìm
-// Không ra do không thể chuyển có dấu thành không dấu
 
 const filterName = nameSearch =>
   classRoom.filter(
@@ -42,5 +39,11 @@ const filterName = nameSearch =>
         .join('')
         .toLowerCase()
         .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '') === nameSearch.toLowerCase()
+        .replace(/[\u0300-\u036f]/g, '') ===
+      nameSearch
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
   );
+
+console.log(filterName('HIEU'));
