@@ -46,4 +46,3 @@ const filterName = nameSearch =>
         .replace(/[\u0300-\u036f]/g, '')
   );
 
-console.log(filterName('HIEU'));
